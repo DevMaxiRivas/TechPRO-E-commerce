@@ -1,2 +1,12 @@
-GET http://localhost:1337/api/products?populate=*
+// Get products with specific fields and populate images with only the URL field
+GET http://localhost:1337/api/products?fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url
 
+###
+
+// Get featured products with specific filter, fields and populate images with only the URL field
+GET http://localhost:1337/api/products?filters[isFeatured][$eq]=true&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
+
+###
+
+// Get categories with specific fields and populate mainImage with only the URL field
+GET http://localhost:1337/api/categories?fields=categoryName,slug&populate[mainImage][fields]=url
