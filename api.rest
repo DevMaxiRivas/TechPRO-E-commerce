@@ -1,3 +1,4 @@
+// PRODUCTS
 // Get products with specific fields and populate images with only the URL field
 GET http://localhost:1337/api/products?fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url
 
@@ -6,7 +7,19 @@ GET http://localhost:1337/api/products?fields=id,productName,slug,description,pr
 // Get featured products with specific filter, fields and populate images with only the URL field
 GET http://localhost:1337/api/products?filters[isFeatured][$eq]=true&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
 
+### 
+
+// Get products filtered by category with specific fields and populate images with only the URL field
+GET http://localhost:1337/api/products?filters[category][categoryName][$eq]=disks&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
+
 ###
+// CATEGORIES
 
 // Get categories with specific fields and populate mainImage with only the URL field
 GET http://localhost:1337/api/categories?fields=categoryName,slug&populate[mainImage][fields]=url
+
+###
+
+// Get info about schema of product content type
+GET http://localhost:1337/api/content-type-builder/content-types/api::product.product
+
