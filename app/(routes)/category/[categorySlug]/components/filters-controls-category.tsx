@@ -2,7 +2,7 @@
 
 const FiltersControlsCategory = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="sm:w-[350px] sm:mt-5">
+        <div className="p-6">
             {children}
         </div>
     );

@@ -10,15 +10,12 @@ import { Expand, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import IconButton from "./icon-button";
 import Image from "next/image";
+import { getURLImage } from "@/lib/get-url-image";
+import { formatPrice } from "@/lib/format-price";
 
 const truncate = (str: string, len: number) => {
     return str.length > len ? str.slice(0, len) + '...' : str;
 };
-
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-});
 
 const FeatureProducts = () => {
     const { result, loading }: ResponseType = useGetFeatureProducts();
@@ -39,7 +36,7 @@ const FeatureProducts = () => {
                                         <Card className="h-full py-4 border border-gray-200 shadow-none bg-white">
                                             <CardContent className="relative flex items-center justify-center px-6 py-2">
                                                 <Image
-                                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`}
+                                                    src={getURLImage(images[0].url)}
                                                     width={500}
                                                     height={500}
                                                     alt="Image Featured"
@@ -49,7 +46,7 @@ const FeatureProducts = () => {
                                                 <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                                                     <div className="flex justify-center gap-x-6">
                                                         <IconButton
-                                                            onClick={() => router.push(`products/${slug}`)}
+                                                            onClick={() => router.push(`product/${slug}`)}
                                                             icon={<Expand size={20} />}
                                                             className="text-primary"
                                                         />
@@ -64,7 +61,7 @@ const FeatureProducts = () => {
                                             <div className="px-8">
                                                 <div className="flex justify-between">
                                                     <span className="capitalize px-2 py-1 rounded-full bg-primary text-white">{category.categoryName}</span>
-                                                    <span className="px-2 py-1 text-black">{formatter.format(price)}</span>
+                                                    <span className="px-2 py-1 text-black">{formatPrice(price)}</span>
                                                 </div>
                                                 <h3 className="mt-2 text-lg font-medium dark:text-black">{truncate(productName, 70)}</h3>
                                             </div>

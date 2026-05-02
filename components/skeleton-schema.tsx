@@ -3,7 +3,7 @@ import { Skeleton } from "./ui/skeleton";
 type SkeletonSchemaProps = {
     grid: number,
 }
-const SkeletonSchema = (props) => {
+const SkeletonSchema = (props: SkeletonSchemaProps) => {
     const { grid } = props;
     return (
         Array.from({ length: grid }).map((_, index) => (
