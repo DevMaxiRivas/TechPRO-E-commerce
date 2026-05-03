@@ -1,5 +1,4 @@
 import { Expand, ShoppingCart } from "lucide-react";
-import IconButton from "@/components/icon-button";
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
@@ -10,7 +9,6 @@ import { ProductType } from "@/types/product";
 
 import Image from "next/image";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 
 type ProductCardProps = {
@@ -18,7 +16,6 @@ type ProductCardProps = {
 }
 
 const ProductCard = (props: ProductCardProps) => {
-    // const router = useRouter();
     const { product } = props
     return (
         <Card className="h-full py-4 border border-gray-200 shadow-none bg-white relative transition-all duration-100 rounded-lg hover:shadow-md">
@@ -57,16 +54,6 @@ const ProductCard = (props: ProductCardProps) => {
                                         >
                                             <ShoppingCart size={20} />
                                         </Link>
-                                        {/* <IconButton
-                                            onClick={() => router.push(`product/${product.slug}`)}
-                                            icon={<Expand size={20} />}
-                                            className="text-primary"
-                                        />
-                                        <IconButton
-                                            onClick={() => console.log("Add to cart:", product.productName)}
-                                            icon={<ShoppingCart size={20} />}
-                                            className="text-primary"
-                                        /> */}
                                     </div>
                                 </div>
                             </CarouselItem>

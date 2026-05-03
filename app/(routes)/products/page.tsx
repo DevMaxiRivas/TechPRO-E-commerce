@@ -20,7 +20,7 @@ export default async function page(
             <h1 className="text-3xl font-medium capitalize p-3">Products</h1>
             <Separator className="my-1" />
             <div className="flex flex-col md:flex-row">
-                <aside className="mr-10">
+                <aside className="mx-10">
                     <StateFilter options={schema.attributes.state.enum} />
                     <OriginFilter options={schema.attributes.origin.enum} />
                     <IsFeaturedFilter />

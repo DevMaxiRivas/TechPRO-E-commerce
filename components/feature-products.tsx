@@ -12,6 +12,7 @@ import IconButton from "./icon-button";
 import Image from "next/image";
 import { getURLImage } from "@/lib/get-url-image";
 import { formatPrice } from "@/lib/format-price";
+import Link from "next/link";
 
 const truncate = (str: string, len: number) => {
     return str.length > len ? str.slice(0, len) + '...' : str;
@@ -46,7 +47,7 @@ const FeatureProducts = () => {
                                                 <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                                                     <div className="flex justify-center gap-x-6">
                                                         <IconButton
-                                                            onClick={() => router.push(`product/${slug}`)}
+                                                            onClick={() => router.push(`products/${slug}`)}
                                                             icon={<Expand size={20} />}
                                                             className="text-primary"
                                                         />
@@ -58,13 +59,16 @@ const FeatureProducts = () => {
                                                     </div>
                                                 </div>
                                             </CardContent>
-                                            <div className="px-8">
+                                            <Link
+                                                href={`products/${slug}`}
+                                                className="px-8"
+                                            >
                                                 <div className="flex justify-between">
                                                     <span className="capitalize px-2 py-1 rounded-full bg-primary text-white">{category.categoryName}</span>
                                                     <span className="px-2 py-1 text-black">{formatPrice(price)}</span>
                                                 </div>
                                                 <h3 className="mt-2 text-lg font-medium dark:text-black">{truncate(productName, 70)}</h3>
-                                            </div>
+                                            </Link>
                                         </Card>
                                     </div>
                                 </CarouselItem>

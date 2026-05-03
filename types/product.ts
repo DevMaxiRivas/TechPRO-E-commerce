@@ -4,6 +4,7 @@ export type ProductType = {
     slug: string;
     description: string;
     price: number;
+    state: string;
     isFeatured: boolean;
     images: Array<{
         id: number

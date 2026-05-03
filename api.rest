@@ -14,6 +14,10 @@ GET http://localhost:1337/api/products?filters[category][categoryName][$eq]=disk
 
 ###
 
+GET  http://localhost:1337/api/products?filters[slug][$contains]=dwisco-ssd-240gb-gigabyte-2-5-7mm-color-gris&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
+
+###
+
 GET http://localhost:1337/api/products?filters[category][slug][$eq]=disks&filters[isFeatured][$eq]=true&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
 
 ###
