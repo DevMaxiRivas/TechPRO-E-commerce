@@ -13,6 +13,7 @@ import Image from "next/image";
 import { getURLImage } from "@/lib/get-url-image";
 import { formatPrice } from "@/lib/format-price";
 import Link from "next/link";
+import { useCart } from "@/hooks/use-cart";
 
 const truncate = (str: string, len: number) => {
     return str.length > len ? str.slice(0, len) + '...' : str;
@@ -21,6 +22,7 @@ const truncate = (str: string, len: number) => {
 const FeatureProducts = () => {
     const { result, loading }: ResponseType = useGetFeatureProducts();
     const router = useRouter();
+    const { addItem } = useCart();
     return (
         <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
             <h2 className="px-6 text-3xl sm:pb-8">Featured Products</h2>
@@ -52,7 +54,7 @@ const FeatureProducts = () => {
                                                             className="text-primary"
                                                         />
                                                         <IconButton
-                                                            onClick={() => console.log("Add to cart:", productName)}
+                                                            onClick={() => addItem(product)}
                                                             icon={<ShoppingCart size={20} />}
                                                             className="text-primary"
                                                         />
