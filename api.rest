@@ -13,6 +13,10 @@ GET http://localhost:1337/api/products?filters[isFeatured][$eq]=true&fields=id,p
 GET http://localhost:1337/api/products?filters[category][categoryName][$eq]=disks&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
 
 ###
+
+GET http://localhost:1337/api/products?filters[category][slug][$eq]=disks&filters[isFeatured][$eq]=true&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug
+
+###
 // CATEGORIES
 
 // Get categories with specific fields and populate mainImage with only the URL field
@@ -21,7 +25,7 @@ GET http://localhost:1337/api/categories?fields=categoryName,slug&populate[mainI
 ###
 
 // Get info about schema of product content type
-GET http://localhost:1337/api/content-type-builder/content-types/api::pr3oduct.product?fields=schema
+GET http://localhost:1337/api/content-type-builder/content-types/api::product.product?fields=schema
 Authorization: Bearer 0f75c60eaee7d4ff637a5d924d2a7247f5083556fa8af0f1bd51e2fbac221c1c24438c00fc4f66edb258ec439c54c35b538f2594188390e82a2337b750ea69648b512a125f6afa7cfd8517904aced4e84deb2cadde291f494ee6ae25c2f1beb5efc2219d61d54ae580c3267acb5851de1ebfc98d7af841707e0683c65143b726
 
 # GET http://localhost:1337/api/content-type-builder/content-types/api::product.product?populate[schema][fields]=attributes

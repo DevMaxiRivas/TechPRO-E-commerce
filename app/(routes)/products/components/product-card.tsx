@@ -10,7 +10,7 @@ import { ProductType } from "@/types/product";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 
 type ProductCardProps = {
@@ -18,7 +18,7 @@ type ProductCardProps = {
 }
 
 const ProductCard = (props: ProductCardProps) => {
-    const router = useRouter();
+    // const router = useRouter();
     const { product } = props
     return (
         <Card className="h-full py-4 border border-gray-200 shadow-none bg-white relative transition-all duration-100 rounded-lg hover:shadow-md">
@@ -45,7 +45,19 @@ const ProductCard = (props: ProductCardProps) => {
                                 />
                                 <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                                     <div className="flex justify-center gap-x-6">
-                                        <IconButton
+                                        <Link
+                                            href={`/products/${product.slug}`}
+                                            className="rounded-full flex items-center bg-white border shadow-md p-2 hover:scale-110 transition text-primary"
+                                        >
+                                            <Expand size={20} />
+                                        </Link>
+                                        <Link
+                                            href={`/cart`}
+                                            className="rounded-full flex items-center bg-white border shadow-md p-2 hover:scale-110 transition text-primary"
+                                        >
+                                            <ShoppingCart size={20} />
+                                        </Link>
+                                        {/* <IconButton
                                             onClick={() => router.push(`product/${product.slug}`)}
                                             icon={<Expand size={20} />}
                                             className="text-primary"
@@ -54,7 +66,7 @@ const ProductCard = (props: ProductCardProps) => {
                                             onClick={() => console.log("Add to cart:", product.productName)}
                                             icon={<ShoppingCart size={20} />}
                                             className="text-primary"
-                                        />
+                                        /> */}
                                     </div>
                                 </div>
                             </CarouselItem>

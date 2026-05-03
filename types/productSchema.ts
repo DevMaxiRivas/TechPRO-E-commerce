@@ -3,5 +3,8 @@ export type ProductSchema = {
         origin: {
             enum: string[];
         };
+        state: {
+            enum: string[];
+        };
     };
 };

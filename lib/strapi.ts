@@ -24,8 +24,7 @@ export function query(url: string, typeQuery: string = "getResources") {
         headers: {
             Authorization: `Bearer ${token}`,
         },
-    }).then(
-        (res) => res.json()
+    }).then((res) => res.json()
     ).catch(
         (err) => {
             console.error(`Error fetching data from ${url}:`, err);

@@ -28,7 +28,7 @@ const ChooseCategory = () => {
                     result.map((category: CategoryType) => (
                         <Link
                             key={category.id}
-                            href={`/category/${category.slug}`}
+                            href={`/products?category=${category.slug}`}
                             className="h-full relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                         >
                             <div className="flex items-center justify-center h-full">
