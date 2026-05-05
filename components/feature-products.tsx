@@ -14,6 +14,7 @@ import { getURLImage } from "@/lib/get-url-image";
 import { formatPrice } from "@/lib/format-price";
 import Link from "next/link";
 import { useCart } from "@/hooks/use-cart";
+import TagsProduct from "./shared/products/tags-product";
 
 const truncate = (str: string, len: number) => {
     return str.length > len ? str.slice(0, len) + '...' : str;
@@ -28,7 +29,7 @@ const FeatureProducts = () => {
             <h2 className="px-6 text-3xl sm:pb-8">Featured Products</h2>
             <Carousel
             >
-                <CarouselContent className="-ml-2 md:-ml-4">
+                <CarouselContent className="-ml-2 md:-ml-4 gap-4">
                     {(loading && (<SkeletonSchema grid={3} />))}
                     {
                         result !== null && result.map((product: ProductType) => {
@@ -65,11 +66,9 @@ const FeatureProducts = () => {
                                                 href={`products/${slug}`}
                                                 className="px-8"
                                             >
-                                                <div className="flex justify-between">
-                                                    <span className="capitalize px-2 py-1 rounded-full bg-primary text-white">{category.categoryName}</span>
-                                                    <span className="px-2 py-1 text-black">{formatPrice(price)}</span>
-                                                </div>
+                                                <TagsProduct product={product} />
                                                 <h3 className="mt-2 text-lg font-medium dark:text-black">{truncate(productName, 70)}</h3>
+                                                <p className="font-bold text-lg dark:text-primary">{formatPrice(product.price)}</p>
                                             </Link>
                                         </Card>
                                     </div>

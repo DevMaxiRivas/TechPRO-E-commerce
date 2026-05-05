@@ -10,6 +10,7 @@ import { ProductType } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import TagsProduct from "@/components/shared/products/tags-product";
 
 type ProductCardProps = {
     product: ProductType;
@@ -65,11 +66,9 @@ const ProductCard = (props: ProductCardProps) => {
                 href={`/products/${props.product.slug}`}
             >
                 <div className="px-8">
-                    <div className="flex justify-between">
-                        <span className="capitalize px-2 py-1 rounded-full bg-primary text-white">{product.category.categoryName}</span>
-                        <span className="px-2 py-1 text-black">{formatPrice(product.price)}</span>
-                    </div>
+                    <TagsProduct product={product} />
                     <h3 className="mt-2 text-lg font-medium dark:text-black">{product.productName}</h3>
+                    <p className="font-bold text-lg dark:text-primary">{formatPrice(product.price)}</p>
                 </div>
             </Link>
         </Card>

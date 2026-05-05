@@ -32,3 +32,17 @@ export function query(url: string, typeQuery: string = "getResources") {
         }
     );
 }
+
+export type RelationFieldsType = {
+    name: string;
+    fields: Array<string>;
+}
+
+export function buildQueryFieldParameters(fields: Array<string>, relations: Array<RelationFieldsType>) {
+    let query = `fields=${fields.join(",")}`;
+
+    for (const relation of relations) {
+        query += `&populate[${relation.name}][fields]=${relation.fields.join(",")}`;
+    }
+    return query
+}

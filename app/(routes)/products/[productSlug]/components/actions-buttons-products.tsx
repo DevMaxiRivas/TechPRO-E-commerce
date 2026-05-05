@@ -1,12 +1,14 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useCart } from "@/hooks/use-cart";
 import { ProductType } from "@/types/product";
 import { Heart, ShoppingCart } from "lucide-react";
 
 const ActionButtonsProduct = (props: { product: ProductType }) => {
     const { product } = props;
-    const { addItem } = useCart();
+    const { addItem: addItemCart } = useCart();
+    const { addItem: addItemBookmark } = useBookmarks();
 
     return (
         <div className="grid grid-cols-7 grid-rows-2 items-center">
@@ -23,7 +25,7 @@ const ActionButtonsProduct = (props: { product: ProductType }) => {
                     width={30}
                     strokeWidth={1}
                     className="mx-auto transition duration-300 cursor-pointer hover:fill-black"
-                    onClick={() => addItem(product)}
+                    onClick={() => addItemCart(product)}
                 />
             </div>
             <div className="col-start-7">
@@ -31,7 +33,7 @@ const ActionButtonsProduct = (props: { product: ProductType }) => {
                     width={30}
                     strokeWidth={1}
                     className="mx-auto transition duration-300 cursor-pointer hover:fill-black"
-                    onClick={() => console.log("Add to favorites product " + product.productName)}
+                    onClick={() => addItemBookmark(product)}
                 />
             </div>
         </div>

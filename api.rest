@@ -1,6 +1,6 @@
 // PRODUCTS
 // Get products with specific fields and populate images with only the URL field
-GET http://localhost:1337/api/products?fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url
+GET http://localhost:1337/api/products?fields=id,productName,slug,description,price,state,isFeatured&populate[images][fields]=id,url&populate[category][fields]=id,categoryName,slug
 
 ###
 

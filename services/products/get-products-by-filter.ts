@@ -1,8 +1,8 @@
 import { ProductFilters } from "@/lib/filters/product-filter";
 import { query } from "@/lib/strapi";
+import getFieldsQuery from "./get-fields-query";
 
 export function getProductsByFilter(filter: ProductFilters) {
-    // const { categoryId, minPrice, maxPrice, search, state } = filter;
 
     const { origin, state, category, priceMin, priceMax, isFeatured, page } = filter;
     let queryFilter = ``;
@@ -31,8 +31,8 @@ export function getProductsByFilter(filter: ProductFilters) {
         queryFilter += `filters[isFeatured]=${isFeatured}&`;
     }
 
-    const queryParams = `${queryFilter}fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug`;
-    // console.log(filter, "\n", queryParams);
+    const queryParams = `${queryFilter}&${getFieldsQuery()}`;
+
     return query(`products?${queryParams}`)
         .then(res => {
             return res.data

@@ -16,3 +16,18 @@ export type ProductType = {
         slug: string;
     }
 }
+
+export const ProductTypeFields = [
+    "id",
+    "productName",
+    "slug",
+    "description",
+    "price",
+    "state",
+    "isFeatured",
+]
+
+export const ProductTypeRelations = [
+    { name: "images", fields: ["id", "url"] },
+    { name: "category", fields: ["id", "categoryName", "slug"] }
+]

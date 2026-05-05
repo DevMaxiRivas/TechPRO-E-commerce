@@ -5,10 +5,12 @@ import MenuList from "./menu-list";
 import ItemsMenuMobile from "./items-menu-mobile";
 import ToggleTheme from "./toogle-theme";
 import { useCart } from "@/hooks/use-cart";
+import { useBookmarks } from "@/hooks/use-bookmarks";
 
 const Navbar = () => {
     const router = useRouter();
     const cart = useCart();
+    const bookmarks = useBookmarks();
     return (
         <div className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
             <h1
@@ -46,8 +48,8 @@ const Navbar = () => {
                 }
                 <Heart
                     strokeWidth="1"
-                    className="cursor-pointer"
-                    onClick={() => router.push("/favorites")}
+                    className={`cursor-pointer ${bookmarks.items.length > 0 && "fill-black dark:fill-white"}`}
+                    onClick={() => router.push("/bookmarks")}
                 />
                 <User
                     strokeWidth="1"

@@ -1,6 +1,7 @@
+import getFieldsQuery from "@/services/products/get-fields-query";
 import { useGetResourcesFromAPI } from "./useGetResourcesFromAPI";
 
 export function useGetFeatureProducts() {
-    const query = "?filters[isFeatured][$eq]=true&fields=id,productName,slug,description,price,isFeatured&populate[images][fields][0]=url&populate[category][fields]=categoryName,slug";
+    const query = `?filters[isFeatured][$eq]=true&${getFieldsQuery()}`;
     return useGetResourcesFromAPI("products", query);
 }
