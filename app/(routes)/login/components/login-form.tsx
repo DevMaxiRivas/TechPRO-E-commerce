@@ -32,7 +32,7 @@ export function LoginForm() {
     }, [state]);
 
     return (
-        <form action={formAction} className="space-y-3">
+        <form action={formAction} className="flex flex-col gap-3">
             {state?.error && (
                 <div className="px-4 py-3 text-sm text-red-600 border border-red-200 rounded-lg bg-red-50">
                     {state.error}
@@ -54,8 +54,13 @@ export function LoginForm() {
                 <Label htmlFor="password">Password</Label>
                 <PasswordInput id="password" name="password" />
             </div>
+            <div className="text-sm my-3">
+                <a href="/forgot-password" className="font-semibold text-primary hover:text-black">
+                    Forgot password?
+                </a>
+            </div>
 
-            <Button type="submit" disabled={isPending} className="w-full">
+            <Button type="submit" disabled={isPending} className="w-full cursor-pointer">
                 {isPending ? "Signing in..." : "Sign in"}
             </Button>
 
