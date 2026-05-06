@@ -2,14 +2,6 @@ import ForgotPasswordForm from "./components/forgot-password-form";
 
 export default function Page() {
     return (
-        // <div className="flex items-center justify-center min-h-screen">
-        //     <div className="w-full max-w-sm p-8 rounded-xl shadow-md border">
-        //         <h1 className="mb-6 text-2xl font-bold text-center">
-        //             Forgot Password
-        //         </h1>
-        //         <ForgotPasswordForm />
-        //     </div>
-        // </div>
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-10">
                 <h1 className="text-center text-3xl">
