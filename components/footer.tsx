@@ -15,7 +15,7 @@ const dataFooter = [
     {
         id: 3,
         name: "My Account",
-        link: "/account"
+        link: "/profile"
     },
     {
         id: 4,

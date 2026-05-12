@@ -1,4 +1,3 @@
-import SkeletonSchema from "@/components/skeleton-schema";
 import { getProductsBySlug } from "@/services/products/get-product-by-slug";
 import { Suspense } from "react";
 import SkeletonProduct from "./components/skeleton-product";

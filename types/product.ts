@@ -1,3 +1,30 @@
+import { z } from 'zod';
+
+const ProductImageSchema = z.object({
+    id: z.number(),
+    url: z.string(),
+});
+
+const CategorySchema = z.object({
+    id: z.number(),
+    categoryName: z.string(),
+    slug: z.string(),
+});
+
+export const ProductSchema = z.object({
+    id: z.number(),
+    productName: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    price: z.number(),
+    state: z.string(),
+    isFeatured: z.boolean(),
+    images: z.array(ProductImageSchema),
+    category: CategorySchema,
+});
+
+export const ProductsArraySchema = z.array(ProductSchema);
+
 export type ProductType = {
     id: number;
     productName: string;
