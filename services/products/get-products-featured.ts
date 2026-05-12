@@ -1,10 +1,10 @@
 import { query } from "@/lib/strapi";
 import getFieldsQuery from "./get-fields-query";
-import { ProductsArraySchema } from "@/types/product";
+import { ProductsArraySchema, ProductTypeFields, ProductTypeRelations } from "@/types/product";
 import { z } from "zod";
 
 export function getProductsFeatured() {
-    const queryParams = `filters[isFeatured][$eq]=true&${getFieldsQuery()}`;
+    const queryParams = `filters[isFeatured][$eq]=true&${getFieldsQuery(ProductTypeFields, ProductTypeRelations)}`;
 
     return query(`products?${queryParams}`)
         .then(res => {

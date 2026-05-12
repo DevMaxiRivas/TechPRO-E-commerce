@@ -1,11 +1,11 @@
 import { NotFoundError, ServiceUnavailableError } from "@/lib/errors";
 import { query } from "@/lib/strapi";
-import { ProductType } from "@/types/product";
+import { ProductType, ProductTypeFields, ProductTypeRelations } from "@/types/product";
 import getFieldsQuery from "./get-fields-query";
 
 export function getProductsBySlug(slug: string) {
 
-    return query(`products?filters[slug][$eq]=${slug}&${getFieldsQuery()}`)
+    return query(`products?filters[slug][$eq]=${slug}&${getFieldsQuery(ProductTypeFields, ProductTypeRelations)}`)
         .then(
             (res) => {
                 if (res.data === undefined || res.data.length === 0) {

@@ -1,6 +1,7 @@
 import { ProductFilters } from "@/lib/filters/product-filter";
 import { query } from "@/lib/strapi";
 import getFieldsQuery from "./get-fields-query";
+import { ProductTypeFields, ProductTypeRelations } from "@/types/product";
 
 export function getProductsByFilter(filter: ProductFilters) {
 
@@ -31,7 +32,7 @@ export function getProductsByFilter(filter: ProductFilters) {
         queryFilter += `filters[isFeatured]=${isFeatured}&`;
     }
 
-    const queryParams = `${queryFilter}&${getFieldsQuery()}`;
+    const queryParams = `${queryFilter}&${getFieldsQuery(ProductTypeFields, ProductTypeRelations)}`;
 
     return query(`products?${queryParams}`)
         .then(res => {
