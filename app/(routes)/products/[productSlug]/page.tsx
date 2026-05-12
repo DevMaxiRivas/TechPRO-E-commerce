@@ -11,13 +11,13 @@ export default async function page(
     const { productSlug } = await params;
     const product = await getProductsBySlug(productSlug);
     return (
-        <Suspense
-            key={JSON.stringify(product)}
-            fallback={
-                <SkeletonProduct />
-            }
-        >
-            <div className="max-w-6xl py-4 mx-auto sm:py-32 sm:px-24">
+        <div className="max-w-6xl py-4 mx-auto sm:py-32 sm:px-24">
+            <Suspense
+                key={JSON.stringify(product)}
+                fallback={
+                    <SkeletonProduct />
+                }
+            >
                 <div className="grid sm:grid-cols-2">
                     <div>
                         <CarouselProduct images={product.images} />
@@ -26,7 +26,7 @@ export default async function page(
                         <InfoProduct product={product} />
                     </div>
                 </div>
-            </div>
-        </Suspense>
+            </Suspense>
+        </div>
     );
 }
