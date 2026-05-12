@@ -27,10 +27,10 @@ export const dataCarouselTop = [
     }
 ]
 
-const CarouselTextBanner = () => {
+const SectionCarouselTextBanner = () => {
     const router = useRouter();
     return (
-        <div className="bg-gray-200 dark:bg-primary">
+        <section className="bg-gray-200 dark:bg-primary">
             <Carousel
                 className="w-full max-w-4xl mx-auto"
                 plugins={[
@@ -60,8 +60,8 @@ const CarouselTextBanner = () => {
                     }
                 </CarouselContent>
             </Carousel>
-        </div>
+        </section>
     );
 }
 
-export default CarouselTextBanner;
+export default SectionCarouselTextBanner;

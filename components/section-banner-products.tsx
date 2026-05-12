@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 
-const BannerProducts = () => {
+const SectionBannerProducts = () => {
     return (
-        <>
+        <section>
             <div className="mt-4 text-center">
                 <p>Unlock your full gaming potential...</p>
                 <h4 className="mt-2 text-5xl font-extrabold text-primary">TechPRO</h4>
@@ -15,9 +15,9 @@ const BannerProducts = () => {
                     Shop Now
                 </Link>
             </div>
-            <div className="h-[350px] bg-cover lg:h-[600px] bg-[url('/slider-image.jpg')] bg-center mt-5"></div>
-        </>
+            <div className="h-88 bg-cover lg:h-150 bg-[url('/slider-image.jpg')] bg-center mt-5"></div>
+        </section>
     );
 }
 
-export default BannerProducts;
+export default SectionBannerProducts;

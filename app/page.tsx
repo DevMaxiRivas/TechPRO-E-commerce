@@ -1,17 +1,17 @@
-import BannerDiscount from "@/components/banner-discount";
-import BannerProducts from "@/components/banner-products";
-import CarouselTextBanner from "@/components/carousel-text-banner";
-import ChooseCategory from "@/components/choose-category";
-import { FeaturedProducts } from "@/components/featured-products";
+import SectionBannerProducts from "@/components/section-banner-products";
+import SectionBannerDiscount from "@/components/section-banner-discount";
+import SectionCarouselTextBanner from "@/components/section-carousel-text-banner";
+import SectionChooseCategory from "@/components/section-choose-category";
+import { SectionFeaturedProducts } from "@/components/section-featured-products";
 
 export default async function Home() {
   return (
     <main>
-      <CarouselTextBanner />
-      <FeaturedProducts />
-      <BannerDiscount />
-      <ChooseCategory />
-      <BannerProducts />
+      <SectionCarouselTextBanner />
+      <SectionFeaturedProducts />
+      <SectionBannerDiscount />
+      <SectionChooseCategory />
+      <SectionBannerProducts />
     </main>
   );
 }
