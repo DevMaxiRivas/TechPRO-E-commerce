@@ -21,8 +21,6 @@ const loginSchema = z.object({
 export async function login(prevState: unknown, formData: FormData) {
 
     const result = loginSchema.safeParse(Object.fromEntries(formData));
-    console.log("Login form result:", result);
-    console.log("Login form data:", formData);
 
     if (!result.success) {
         return {
@@ -39,7 +37,6 @@ export async function login(prevState: unknown, formData: FormData) {
         };
     }
 
-    console.log("Creacion de sesion");
     await createSession(testUser.id);
 
     redirect("/");

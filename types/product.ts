@@ -31,6 +31,7 @@ export type ProductType = {
     slug: string;
     description: string;
     price: number;
+    quantity: number | null;
     state: string;
     isFeatured: boolean;
     images: Array<{

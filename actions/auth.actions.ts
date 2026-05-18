@@ -25,7 +25,8 @@ export async function loginAction(_prevState: unknown, formData: FormData) {
     }
 
     try {
-        const res = await fetch(`${API}/api/auth/local`, {
+        // const res = await fetch(`${API}/api/auth/local`, {
+        const res = await fetch(`http://techpro_strapi:1337/api/auth/local`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ identifier, password }),

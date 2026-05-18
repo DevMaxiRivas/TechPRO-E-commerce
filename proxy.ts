@@ -12,6 +12,8 @@ export function proxy(request: NextRequest) {
     const jwt = request.cookies.get("jwt")?.value;
     const { pathname } = request.nextUrl;
 
+    console.log("Proxy:", request.url, request.cookies);
+
     if (protectedRoutes.some(r => pathname.startsWith(r)) && !jwt) {
         return NextResponse.redirect(new URL("/login", request.url));
     }
